@@ -2,7 +2,7 @@ var onAutorize = function() {
   Trello.rest("GET","boards/532169c1348424717a6298f5/lists/", function(lister){
 
     $.each(lister, function(indx, liste){
-      if (liste.name === "Muligheter") return;
+      if (liste.name.toLowerCase().indexOf("mulighet") >=0 ) return;
 
       $("#lister").append("<h2 id='h"+ liste.id +"'>"+ liste.name +"</h2><div id='" + liste.id + "'></div>");
       $("#h" + liste.id).addClass("hidden");
