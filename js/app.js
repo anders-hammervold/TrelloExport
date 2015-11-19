@@ -15,7 +15,10 @@ var onAutorize = function() {
           if (!card.desc) {
             alert(card.name + " mangler beskrivelse");
           }
-
+          var hr=card.desc.toLowerCase().indexOf("konfidensielt");
+          if (hr>0) {
+            card.desc=card.desc.slice(0,hr);
+          }
           $("#h" + liste.id).removeClass("hidden");
           $("#"+liste.id).append("<h3>" + card.name + "</h3>");
           if (card.due != null ) {
